@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Raffi</title>
+    <title>For My Love, Raffi ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>Mini Game untuk Raffi</h1>
-        <p>Kumpulkan 10 poin untuk melihat catatan kecil ini.</p>
-        <div class="score-board">Skor: <span id="score">0</span></div>
-        
-        <div id="play-area">
-            <div id="target-heart">❤️</div>
+    <div class="card">
+        <!-- TAHAP 1: Game Tebak Password / Petunjuk Rahasia -->
+        <div id="step-1" class="section">
+            <div class="heart-icon">❤️</div>
+            <h2>Special Access</h2>
+            <p>Type our special secret password to open this page:</p>
+            <input type="password" id="password-input" placeholder="Secret password...">
+            <button id="submit-btn">Unlock with Love 💖</button>
+            <p id="error-msg" class="error hidden">Oops, wrong password! Try again, sayang.</p>
         </div>
 
-        <div id="secret-message" class="hidden">
-            <h2>Terima Kasih, Raffi</h2>
-            <p>Terima kasih sudah banyak membantu dan selalu ada. Semoga urusanmu selalu dimudahkan dan sukses terus kedepannya.</p>
+        <!-- TAHAP 2: Sapaan Romantis -->
+        <div id="step-2" class="section hidden">
+            <div class="heart-icon">✨</div>
+            <h2>Hi, Raffi...</h2>
+            <p>You made it. There's a little message waiting just for you.</p>
+            <button id="next-btn">Open Message 💕</button>
+        </div>
+
+        <!-- TAHAP 3: Halaman Ucapan Terima Kasih -->
+        <div id="step-3" class="section hidden">
+            <div class="heart-icon">💌</div>
+            <h2>Thank You, My Love</h2>
+            <p>Thank you for always being there, for your patience, and for making every single day so much brighter. I'm truly lucky to have you, Raffi. I love you endlessly. ❤️</p>
+            <div class="footer-note">— Forever Yours ✨</div>
         </div>
     </div>
+
+    <!-- Musik Latar Romantis (Otomatis Putar) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>

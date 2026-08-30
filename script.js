@@ -1,30 +1,32 @@
-let score = 0;
-const scoreDisplay = document.getElementById('score');
-const heart = document.getElementById('target-heart');
-const playArea = document.getElementById('play-area');
-const secretMessage = document.getElementById('secret-message');
+const passwordInput = document.getElementById('password-input');
+const submitBtn = document.getElementById('submit-btn');
+const errorMsg = document.getElementById('error-msg');
 
-function moveHeart() {
-    const maxX = playArea.clientWidth - 40;
-    const maxY = playArea.clientHeight - 40;
-    
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
-    
-    heart.style.left = randomX + 'px';
-    heart.style.top = randomY + 'px';
-}
+const step1 = document.getElementById('step-1');
+const step2 = document.getElementById('step-2');
+const step3 = document.getElementById('step-3');
+const nextBtn = document.getElementById('next-btn');
+const bgMusic = document.getElementById('bg-music');
 
-heart.addEventListener('click', () => {
-    score++;
-    scoreDisplay.textContent = score;
-    moveHeart();
+// Kata sandi untuk masuk (bisa kamu ganti di sini, misal "raffi" atau tanggal jadian)
+const secretPassword = "raffi"; 
 
-    if (score >= 10) {
-        secretMessage.classList.remove('hidden');
-        heart.style.display = 'none';
+submitBtn.addEventListener('click', () => {
+    const userVal = passwordInput.value.trim().toLowerCase();
+    if (userVal === secretPassword) {
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        
+        // Putar musik romantis saat password benar
+        bgMusic.play().catch(error => {
+            console.log("Autoplay dicegah browser, butuh interaksi tambahan.");
+        });
+    } else {
+        errorMsg.classList.remove('hidden');
     }
 });
 
-// Pindahkan posisi hati pertama kali
-moveHeart();
+nextBtn.addEventListener('click', () => {
+    step2.classList.add('hidden');
+    step3.classList.remove('hidden');
+});
