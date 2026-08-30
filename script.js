@@ -1,11 +1,30 @@
-const btn = document.getElementById('love-btn');
-const secretMsg = document.getElementById('secret-message');
+let score = 0;
+const scoreDisplay = document.getElementById('score');
+const heart = document.getElementById('target-heart');
+const playArea = document.getElementById('play-area');
+const secretMessage = document.getElementById('secret-message');
 
-btn.addEventListener('click', () => {
-    secretMsg.classList.remove('hidden');
-    secretMsg.textContent = "I love you more than words can say. Stay with me for a long, long time ya, Raffi! 🥰💕";
-    btn.textContent = "Forever Yours ❤️";
-    btn.style.backgroundColor = "#cbd5e0";
-    btn.style.boxShadow = "none";
-    btn.style.cursor = "default";
+function moveHeart() {
+    const maxX = playArea.clientWidth - 40;
+    const maxY = playArea.clientHeight - 40;
+    
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    heart.style.left = randomX + 'px';
+    heart.style.top = randomY + 'px';
+}
+
+heart.addEventListener('click', () => {
+    score++;
+    scoreDisplay.textContent = score;
+    moveHeart();
+
+    if (score >= 10) {
+        secretMessage.classList.remove('hidden');
+        heart.style.display = 'none';
+    }
 });
+
+// Pindahkan posisi hati pertama kali
+moveHeart();
