@@ -9,7 +9,7 @@ const nextBtn = document.getElementById('next-btn');
 const bgMusic = document.getElementById('bg-music');
 
 // Kata sandi untuk masuk (bisa kamu ganti di sini, misal "raffi" atau tanggal jadian)
-const secretPassword = "raffi"; 
+const secretPassword = "010825"; 
 
 submitBtn.addEventListener('click', () => {
     const userVal = passwordInput.value.trim().toLowerCase();
